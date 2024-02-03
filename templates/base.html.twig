@@ -14,6 +14,13 @@
     <body>
     <div class="container">
     <a href="{{ path('home') }}">HOME</a>
+        {% if not  is_granted('ROLE_ADMIN') %}
+            <a href="">CONTACTO</a>
+        {% endif %}
+
+        {% if not is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}
+        <a href="" style="color: orange">QUIERO REGISTRARME</a>
+        {% endif %}
         {% if is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}
             <a href="">PROGRESOS</a>
             <a href="">REGISTROS DE SALUD</a>

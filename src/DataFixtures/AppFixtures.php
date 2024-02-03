@@ -30,7 +30,6 @@ class AppFixtures extends Fixture
             $plaintextPassword
         );
         $user->setPassword($hashedPassword);
-
         $user->setEmail('insorti@gmail.com');
         $user->setRoles(['ROLE_ADMIN']);
          $manager->persist($user);

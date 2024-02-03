@@ -28,6 +28,15 @@ class AdminController extends AbstractController
         ]);
     }
 
+    #[Route('/documents', name: 'documents')]
+    public function documentsAction(): Response
+    {
+        return $this->render('admin/documents.html.twig', [
+            'documents' => 'DOCUEMENTOS DE LA ADMINISTRACIÖN ',
+
+        ]);
+    }
+
 
 
 

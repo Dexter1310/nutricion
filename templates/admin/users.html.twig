@@ -11,7 +11,13 @@
             <ul>
                 {% for item in users %}
 
-                    <li>{{ item.email }} - {{ item.roles[0] }}  <button class="btn btn-warning">Editar</button> <button class="btn btn-danger">Eliminar</button></li>
+                    <li class="m-4">{{ item.email }} - {{ item.roles[0] }}
+                        <button class="btn btn-success">Evolución</button>
+                        <button class="btn btn-warning">Editar</button>
+                        ACTIVA
+                        <button class="btn btn-dark">DAR DE BAJA</button>
+                        <button class="btn btn-danger">DOCUMENTOS COMPARTIDOS</button>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
