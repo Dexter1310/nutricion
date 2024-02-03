@@ -3,13 +3,12 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-
+{% block admin %}
 <div class=" container">
     <h1>Administracion</h1>
-
-    <div><h2>PERSONAS</h2></div>
-
-
-
+    <a href="{{ path('app_admin') }}">INICIO</a>
+    <a href="{{ path('users') }}">PERSONAS</a>
 </div>
+
+    {% endblock %}
 {% endblock %}

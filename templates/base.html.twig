@@ -14,8 +14,12 @@
     <body>
     <div class="container">
     <a href="{{ path('home') }}">HOME</a>
-    <a href="{{ path('app_login') }}">LOGIN</a>
-    <a href="{{ path('app_logout') }}">SALIR</a>
+        {% if is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}
+            <a href="">PROGRESOS</a>
+            <a href="">REGISTROS DE SALUD</a>
+        {% endif %}
+    <a href="{{ path('app_login') }}" STYLE="color:forestgreen">LOGIN</a>
+    <a href="{{ path('app_logout') }}" style="color: red">SALIR</a>
 
     {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ path('app_admin') }}">ADMINISTRACION</a>

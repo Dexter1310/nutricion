@@ -1,0 +1,19 @@
+{% extends '/admin/index.html.twig' %}
+
+
+{% block title %}PERSONAS{% endblock %}
+
+
+    {% block admin %}
+        {{ parent() }}
+        <div class=" container">
+            <a href=""> Agregar persona</a>
+            <ul>
+                {% for item in users %}
+
+                    <li>{{ item.email }} - {{ item.roles[0] }}  <button class="btn btn-warning">Editar</button> <button class="btn btn-danger">Eliminar</button></li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endblock %}
+
