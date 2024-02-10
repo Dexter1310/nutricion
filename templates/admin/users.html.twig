@@ -7,7 +7,7 @@
     {% block admin %}
         {{ parent() }}
         <div class=" container">
-            <a href=""> Agregar persona</a>
+            <a href="{{ path('new_user') }}"> Agregar persona</a>
             <ul>
                 {% for item in users %}
 

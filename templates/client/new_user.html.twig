@@ -1,0 +1,26 @@
+{% extends '/base.html.twig' %}
+
+
+
+{% block title %}Registro{% endblock %}
+
+{% block body %}
+    {% if is_granted('ROLE_ADMIN') %}
+        {% include '/admin/index.html.twig' %}
+    {% endif %}
+
+    <div class="container">
+        <h2>FORMULARIO DE REGISTRO</h2>
+        {{ form_start(form) }}
+        {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+        {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+        {{ form_row(form.password, {'attr': {'class': 'form-control'}}) }}
+        <div class="container mt-2">
+            <button type="submit" class="btn btn-success">Aceptar</button>
+
+        </div>
+
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}
