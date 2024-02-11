@@ -10,13 +10,27 @@
     {% endif %}
 
     <div class="container">
+        {% for label, messages in app.flashes(['success', 'warning']) %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
         <h2>FORMULARIO DE REGISTRO</h2>
+
+
         {{ form_start(form) }}
         {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
         {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
         {{ form_row(form.password, {'attr': {'class': 'form-control'}}) }}
+
+        {% if form.active is defined  %}
+            {{ form_row(form.active, {'attr': {'class': 'form-check-input'}}) }}
+        {% endif %}
+
         <div class="container mt-2">
-            <button type="submit" class="btn btn-success">Aceptar</button>
+            <button type="submit" class="btn btn-success ml-3">Aceptar</button>
 
         </div>
 
