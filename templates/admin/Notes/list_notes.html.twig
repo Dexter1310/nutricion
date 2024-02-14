@@ -1,0 +1,35 @@
+{% extends '/admin/index.html.twig' %}
+
+{% block title %}NOTES{% endblock %}
+
+    {% block admin %}
+        {{ parent() }}
+        <div class="container">
+            {% for label, messages in app.flashes(['success', 'warning']) %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            <a href="{{ path('notes') }}">Crear nota</a>
+            <table class="table">
+                <thead>
+                <th>titulo</th>
+                <th>Nota</th>
+                </thead>
+                <tbody>
+                {% for item in list %}
+                    <tr>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.note }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+
+        </div>
+    {% endblock %}
+

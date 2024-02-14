@@ -2,8 +2,12 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Note;
+use App\Form\NoteType;
 use App\Repository\UserRepository;
+use App\Service\ServiceNote;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -36,8 +40,6 @@ class AdminController extends AbstractController
 
         ]);
     }
-
-
 
 
 }

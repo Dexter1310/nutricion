@@ -42,9 +42,24 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     public function newUser(User $user)
     {
+        if(!$user->isActive()){
+            $user->setActive(false);
+        }
         $user->setRoles(['ROLE_USER']);
         $this->getEntityManager()->persist($user);
         $this->getEntityManager()->flush();
+    }
+
+    public function getChoiceList(): array
+    {
+        $list=$this->createQueryBuilder('u')
+            ->addSelect('u')
+            ->addOrderBy('u.name')
+            ->andWhere('u.roles LIKE :roles')
+            ->setParameter('roles', '%"ROLE_ADMIN"%')
+            ->getQuery()
+            ->getResult();
+        return $list;
     }
 
 //    /**

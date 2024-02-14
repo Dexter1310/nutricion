@@ -1,0 +1,31 @@
+{% extends '/admin/index.html.twig' %}
+
+{% block title %}NOTES{% endblock %}
+
+    {% block admin %}
+        {{ parent() }}
+        <div class="container mt-3">
+            {% for label, messages in app.flashes(['success', 'warning']) %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            <h2>NOTAS</h2>
+
+            <button class="btn btn-default"><a href="{{ path('notes_list') }}">Listado</a></button>
+            {{ form_start(form) }}
+            {{ form_row(form.title, {'attr': {'class': 'form-control'}}) }}
+            {{ form_row(form.note, {'attr': {'class': 'form-control'}}) }}
+            {{ form_row(form.user, {'attr': {'class': 'form-control'}}) }}
+            <div class="container mt-2">
+                <button type="submit" class="btn btn-success ml-3">Aceptar</button>
+
+            </div>
+
+            {{ form_end(form) }}
+
+        </div>
+    {% endblock %}
+
