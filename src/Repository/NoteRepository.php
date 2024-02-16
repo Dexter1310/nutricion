@@ -22,9 +22,11 @@ class NoteRepository extends ServiceEntityRepository
         parent::__construct($registry, Note::class);
     }
 
-    public function newNote(Note $note)
+    public function newNote(Note $note,User $user)
     {
 
+        $state=$user !== $note->getUser()?1:0; //envio propio o a otro usuario en 0 o 1
+        $note->setState($state);
         $this->getEntityManager()->persist($note);
         $this->getEntityManager()->flush();
     }
@@ -39,6 +41,16 @@ class NoteRepository extends ServiceEntityRepository
             ->orderBy('n.title', 'ASC')
             ->getQuery()
             ->getResult();
+    }
+
+    public function deleteNote($id)
+    {
+        $note=$this->find(['id'=>$id]);
+        $this->getEntityManager()->remove($note);
+        $this->getEntityManager()->flush();
+
+        return "note delete";
+
     }
 
 //    /**

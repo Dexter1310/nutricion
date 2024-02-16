@@ -15,15 +15,18 @@
 
             <a href="{{ path('notes') }}">Crear nota</a>
             <table class="table">
-                <thead>
+                <thead>F
                 <th>titulo</th>
                 <th>Nota</th>
+
+                <th>Opciones</th>
                 </thead>
                 <tbody>
                 {% for item in list %}
                     <tr>
                         <td>{{ item.title }}</td>
-                        <td>{{ item.note }}</td>
+                        <td>{{ item.note |raw}}</td>
+                        <td><a href="{{ path('note_delete', { 'id': item.id }) }}"> {% if item.state==1%}  ↙  {% endif%} Eliminar nota</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>

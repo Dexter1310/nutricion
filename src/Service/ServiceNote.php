@@ -17,15 +17,21 @@ class ServiceNote
     }
 
 
-    function newNote(Note $note)
+    function newNote(Note $note,User $user)
     {
-        $this->noteRepository->newNote($note);
+        $this->noteRepository->newNote($note,$user);
 
     }
 
     function getNotesList($user):array
     {
         return $this->noteRepository->getNotesList($user);
+
+    }
+
+    function deleteNote($id):string
+    {
+        return $this->noteRepository->deleteNote($id);
 
     }
 

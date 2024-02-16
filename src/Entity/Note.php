@@ -22,6 +22,9 @@ class Note
 
     #[ORM\ManyToOne]
     private ?User $user = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $state = null;
     public function __toString(): string
     {
         return $this->title;
@@ -64,6 +67,18 @@ class Note
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getState(): ?int
+    {
+        return $this->state;
+    }
+
+    public function setState(?int $state): static
+    {
+        $this->state = $state;
 
         return $this;
     }

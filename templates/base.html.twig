@@ -40,8 +40,7 @@
                     <a class="nav-link" href="{{ path('new_user') }}" style="color: orange">QUIERO REGISTRARME</a>
                 {% endif %}
                 {% if is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}
-                    <a class="nav-link" href="">PROGRESOS</a>
-                    <a class="nav-link" href="">REGISTROS DE SALUD</a>
+                    <a class="nav-link" href="">ACCESO ADMIN Y USER</a>
                 {% endif %}
                 <a class="nav-link" href="{{ path('app_login') }}" STYLE="color:forestgreen">LOGIN</a>
                 <a class="nav-link" href="{{ path('app_logout') }}" style="color: red">SALIR</a>
