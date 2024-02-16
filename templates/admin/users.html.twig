@@ -8,21 +8,36 @@
         {{ parent() }}
         <div class=" container">
             <a href="{{ path('new_user') }}"> Agregar persona</a>
-            <ul>
+            <div class="table-responsive"></div>
+            <table class="table">
+                <thead>
+                <th>Usuario</th>
+                <th>Tipo</th>
+                <th>Opciones</th>
+                <th>Estado</th>
+                </thead>
+                <tbody>
                 {% for item in users %}
+                    <tr>
+                        <td>{{ item.email }} </td>
+                        <td>{{ item.roles[0] }}</td>
+                        <td>
+                            <button class="btn btn-warning">Editar</button>
+                            <button class="btn btn-dark">DAR DE BAJA</button>
+                            <button class="btn btn-danger">DOCUMENTOS COMPARTIDOS</button>
+                        </td>
+                        <td>
 
-                    <li class="m-4">{{ item.email }} - {{ item.roles[0] }}
-                        <button class="btn btn-warning">Editar</button>
-                        <button class="btn btn-dark">DAR DE BAJA</button>
-                        <button class="btn btn-danger">DOCUMENTOS COMPARTIDOS</button>
-                        {% if item.active %}
-                            Activo
-                        {% else %}
-                            Inactivo
-                        {% endif %}
-                    </li>
+                            {% if item.active %}
+                                Activo
+                            {% else %}
+                                Inactivo
+                            {% endif %}
+                        </td>
+                    </tr>
                 {% endfor %}
-            </ul>
+                </tbody>
+            </table>
         </div>
     {% endblock %}
 
